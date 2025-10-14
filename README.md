@@ -92,4 +92,4 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 
 ---
 
-⭐️ *“Code with purpose. Automate with passion.”*
+⭐️ *“Code with purpose. Automate with passion.”* 
