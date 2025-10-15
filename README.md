@@ -9,7 +9,9 @@ Senior Fullstack Developer | IoT & Home Automation Enthusiast | Clean Code Advoc
 
 ### 🧩 About Me  
 💻 I'm a **Senior Fullstack Developer** with over **14 years of experience**, passionate about building **scalable, high-performance web applications** and **integrated automation systems**.  
+
 ⚙️ My expertise covers both **backend and frontend**, with a strong focus on **clean architecture**, **code organization**, and **long-term maintainability**.  
+
 🏠 I also love exploring **Home Assistant**, **ESPHome**, and **IoT devices** — combining software engineering with automation to create smarter living environments.
 
 ---
@@ -60,7 +62,7 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 
 ### 📊 GitHub Stats  
 
-<p align="center">
+<p align="left">
   <img src="https://github-readme-stats.vercel.app/api?username=hugominari&show_icons=true&theme=tokyonight&hide_border=true" height="165">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true" height="165">
 </p>
@@ -75,18 +77,19 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 ---
 
 ### 📫 Connect with Me  
-<p align="center">
+<p align="left">
   <a href="https://www.linkedin.com/in/hugo-minari-diniz-057ab290" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=for-the-badge&logo=linkedin">
   </a>
-  <a href="mailto:hugominari@icloud.com">
+
+  <a href="mailto:@icloud.com">
     <img src="https://img.shields.io/badge/Email-hugominari%40icloud.com-red?style=for-the-badge&logo=gmail&logoColor=white">
   </a>
 </p>
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://komarev.com/ghpvc/?username=hugominari&color=blueviolet&style=for-the-badge&label=Profile+Views" alt="Profile views"/>
 </p>
 
