@@ -6,7 +6,7 @@ Senior Fullstack Developer • IoT & Home Automation Enthusiast • Clean Code A
 </h3>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/hugo-minari-diniz-057ab290" target="_blank">
+  <a href="https://www.linkedin.com/in/hugo-minari-diniz" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=flat-square&logo=linkedin" alt="">
   </a>
   <a href="mailto:hugominari@hmdeveloper.com.br">
