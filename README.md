@@ -63,8 +63,8 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 ### 📊 GitHub Stats  
 
 <p align="left">
-  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api?username=hugominari&count_private=true&include_all_commits=true&show_icons=true&theme=tokyonight&hide_border=true" height="165">
-  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true&langs_count=10&cache_seconds=60&random=1" height="165">
+  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api?username=hugominari&count_private=true&include_all_commits=true&show_icons=true&theme=tokyonight&hide_border=true" height="165" alt="">
+  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true&langs_count=10&hide=PLpgSQL,SQL,CSS,SCSS,Shell,Batchfile,Dockerfile,Makefile,CoffeeScript,ApacheConf,Blade,Hack,Less&cache_seconds=1800" height="165" alt="">
 </p>
 
 ---
@@ -79,10 +79,10 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 ### 📫 Connect with Me  
 <p align="left">
   <a href="https://www.linkedin.com/in/hugo-minari-diniz-057ab290" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=for-the-badge&logo=linkedin">
+    <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=for-the-badge&logo=linkedin" alt="">
   </a>
   <a href="mailto:hugominari@hmdeveloper.com.br">
-    <img src="https://img.shields.io/badge/Email-hugominari%40hmdeveloper.com.br-red?style=for-the-badge&logoColor=white">
+    <img src="https://img.shields.io/badge/Email-hugominari%40hmdeveloper.com.br-red?style=for-the-badge&logoColor=white" alt="">
   </a>
 </p>
 
