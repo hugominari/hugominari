@@ -81,9 +81,8 @@ I’m a huge fan of **smart home systems** and love experimenting with:
   <a href="https://www.linkedin.com/in/hugo-minari-diniz-057ab290" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=for-the-badge&logo=linkedin">
   </a>
-
-  <a href="mailto:@icloud.com">
-    <img src="https://img.shields.io/badge/Email-hugominari%40icloud.com-red?style=for-the-badge&logo=gmail&logoColor=white">
+  <a href="mailto:hugominari@hmdeveloper.com.br">
+    <img src="https://img.shields.io/badge/Email-hugominari%40hmdeveloper.com.br-red?style=for-the-badge&logoColor=white">
   </a>
 </p>
 
