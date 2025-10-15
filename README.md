@@ -63,8 +63,8 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 ### 📊 GitHub Stats  
 
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=hugominari&show_icons=true&theme=tokyonight&hide_border=true" height="165">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true" height="165">
+  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api?username=hugominari&count_private=true&include_all_commits=true&show_icons=true&theme=tokyonight&hide_border=true" height="165">
+  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true&langs_count=10&cache_seconds=60&random=1" height="165">
 </p>
 
 ---
@@ -93,5 +93,4 @@ I’m a huge fan of **smart home systems** and love experimenting with:
 </p>
 
 ---
-
-⭐️ *“Code with purpose. Automate with passion.”* 
+⭐️ *“Code with purpose. Automate with passion.”*
