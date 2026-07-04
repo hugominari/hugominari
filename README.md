@@ -78,10 +78,15 @@ Senior Software Engineer • Fullstack (Python/Django/FastAPI • PHP/Laravel �
 ### 🌟 Featured Projects
 
 - 🏛️ **NewHub** — Multi-tenant SaaS for electronic real-estate registry: SOAP integration with the ONR, ICP-Brasil digital signature, 6 role-based portals. `FastAPI · SQLAlchemy 2 · PostgreSQL 17 · Kafka · Celery · React/Angular`
+
 - 🚗 **SenseCar** — E-commerce platform for vehicle & driver data lookups with real-time payment status via SSE. `Angular 20 · Node.js/Express · PostgreSQL · Docker`
+
 - 🎓 **UniCETREX** — Medical education platform for surgical postgraduate courses: 6 portals, WhatsApp lead capture, Cielo payments. `React 19 · FastAPI · SQLAlchemy 2 · PostgreSQL`
+
 - 🌐 **GoInsiders** — Creators, affiliates & campaigns platform with KYC, digital wallet, and social publishing. `NestJS · Prisma · PostgreSQL · React`
+
 - ✈️ **Alive Tour** — Operations platform for a premium travel agency: CMS, RBAC, loyalty program. `Expo/React Native · NativeWind · Firebase`
+
 - 🧠 **JARVIS** — On-premises, voice-first personal AI lab with 28 specialized agents, semantic memory (RAG), and Home Assistant integration. `Python · FastAPI · React/Tauri · PostgreSQL/pgvector · Ollama`
 
 Full write-ups at **[hmdeveloper.com](https://hmdeveloper.com)**.
