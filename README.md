@@ -95,9 +95,15 @@ Full write-ups at **[hmdeveloper.com](https://hmdeveloper.com)**.
 
 ### 📊 GitHub Analytics
 
+Stats generated daily via [GitHub Actions](https://github.com/hugominari/github-stats) — includes contributions from private repositories, not just public ones.
+
 <div align="center">
-  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api?username=hugominari&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&cache_seconds=1800" height="165" alt="GitHub stats"/>
-  <img src="https://github-readme-stats-coral-mu-39.vercel.app/api/top-langs/?username=hugominari&layout=compact&theme=tokyonight&hide_border=true&langs_count=10&hide=PLpgSQL,SQL,CSS,SCSS,Shell,Batchfile,Dockerfile,Makefile,CoffeeScript,ApacheConf,Blade,Hack,Less&cache_seconds=1800" height="165" alt="Top languages"/>
+  <a href="https://github.com/hugominari/github-stats">
+    <img src="https://github.com/hugominari/github-stats/blob/generated/overview.svg#gh-dark-mode-only" alt="GitHub stats overview"/>
+    <img src="https://github.com/hugominari/github-stats/blob/generated/languages.svg#gh-dark-mode-only" alt="Top languages"/>
+    <img src="https://github.com/hugominari/github-stats/blob/generated/overview.svg#gh-light-mode-only" alt="GitHub stats overview"/>
+    <img src="https://github.com/hugominari/github-stats/blob/generated/languages.svg#gh-light-mode-only" alt="Top languages"/>
+  </a>
 </div>
 
 ---
