@@ -6,7 +6,7 @@ Senior Software Engineer • Fullstack (Python/Django/FastAPI • PHP/Laravel �
 </h3>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/hugo-minari-diniz-057ab290" target="_blank">
+  <a href="https://www.linkedin.com/in/hugo-minari-diniz" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-Hugo_Minari_Diniz-blue?style=flat-square&logo=linkedin" alt="LinkedIn"/>
   </a>
   <a href="mailto:hugominari@icloud.com">
@@ -77,9 +77,9 @@ Senior Software Engineer • Fullstack (Python/Django/FastAPI • PHP/Laravel �
 
 ### 🌟 Featured Projects
 
-- 🏛️ **Electronic Real-Estate Registry SaaS** — Multi-tenant SaaS for electronic real-estate registry: SOAP integration with the ONR, ICP-Brasil digital signature, 6 role-based portals. `FastAPI · SQLAlchemy 2 · PostgreSQL 17 · Kafka · Celery · React/Angular`
+- 🏛️ **Electronic Real-Estate Registry SaaS** — Multi-tenant platform: SOAP integration with the ONR, ICP-Brasil digital signature, 6 role-based portals. `FastAPI · SQLAlchemy 2 · PostgreSQL 17 · Kafka · Celery · React/Angular`
 
-- 🚗 **Vehicle Data E-commerce** — E-commerce platform for vehicle & driver data lookups with real-time payment status via SSE. `Angular 20 · Node.js/Express · PostgreSQL · Docker`
+- 🚗 **Vehicle Data E-commerce** — Platform for vehicle & driver data lookups with real-time payment status via SSE. `Angular 20 · Node.js/Express · PostgreSQL · Docker`
 
 - 🎓 **UniCETREX** — Medical education platform for surgical postgraduate courses: 6 portals, WhatsApp lead capture, Cielo payments. `React 19 · FastAPI · SQLAlchemy 2 · PostgreSQL`
 
