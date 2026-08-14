@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  pull_request:
+    # `edited` is NOT a default (defaults are opened/reopened/synchronize). Editing a title
+    # changes no SHA, so without it a PR goes green on `feat(x): ...` and merges as `whatever`.
+    # No `branches:` filter: it is the same hazard as a `paths:` filter. A stacked PR based
+    # on its parent branch would run no workflow at all, and `CI / required` would never report.
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # No `paths:` filter on any required job: a workflow skipped by path filtering leaves its
+  # check pending forever.
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with: { persist-credentials: false }
+      # ci_profile=docs. An honest detect-and-exit-0 beats a skipped job, which GitHub would
+      # count as satisfying a required check. Repo-wide, not just the root: a suite added in
+      # any subdirectory must trip this. `*fixtures*` is excluded because test DATA is not a
+      # suite; the exclusion is printed on success so it can never be silent.
+      - name: Tests (docs profile — none to run)
+        run: |
+          set -euo pipefail
+          found="$(find . -path ./.git -prune -o \
+            \( -name 'test_*.py' -o -name '*_test.py' -o -type d -name tests \) -print \
+            | grep -v fixtures || true)"
+          if [ -n "$found" ]; then
+            echo "::error::a test suite appeared; move this repo off ci_profile=docs"
+            echo "$found"; exit 1
+          fi
+          echo "docs profile: no test suite by declaration (fixtures excluded:"
+          find . -path ./.git -prune -o \( -name 'test_*.py' -o -name '*_test.py' \) -print \
+            | grep fixtures || true
+          echo ")"
+
+  security:
+    name: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # No fetch-depth: 0 -- `gitleaks dir` scans the worktree, not history, so a full clone
+      # buys nothing here. Scanning history is an audit, not a per-PR gate.
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with: { persist-credentials: false }
+      # The binary, not gitleaks-action: the action lists PR commits and posts comments, so it
+      # needs pull-requests read+write and a token. All this job needs is "scan, fail if found",
+      # which runs under contents:read with no token at all.
+      - name: gitleaks
+        env:
+          GITLEAKS_VERSION: 8.30.1
+          GITLEAKS_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          set -euo pipefail
+          url="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sSfL "$url" -o gitleaks.tgz
+          echo "${GITLEAKS_SHA256}  gitleaks.tgz" | sha256sum -c -
+          tar xzf gitleaks.tgz gitleaks
+          # -v prints file:line and the rule id for each finding. Without it a failure says
+          # only "leaks found: N", which is not something anyone can act on.
+          # --redact masks the value itself, so the log names the location, never the secret.
+          ./gitleaks dir . --no-banner --redact -v --exit-code 1
+
+  commit-convention:
+    name: commit-convention
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with: { fetch-depth: 0, persist-credentials: false }
+      # Pinned to a full commit SHA, never a tag: a tag can be moved to point at new code.
+      # Sourced from hmdeveloper-vault so a fix to the regex is one edit rather than six.
+      - uses: hugominari/hmdeveloper-vault/.github/actions/commit-convention@1bd7dca329ddcf729e9de61dcf563b802ee3b11c
+        with:
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          head_sha: ${{ github.event.pull_request.head.sha }}
+          pr_title: ${{ github.event.pull_request.title }}
+
+  required:
+    name: required
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [tests, security, commit-convention]
+    steps:
+      # GitHub counts `skipped` AND `neutral` as satisfying a required check, so `needs`
+      # alone is not a gate. failure, cancelled and skipped must all fail here.
+      # commit-convention is skipped on push events by design, so it is asserted
+      # ONLY when this is a pull_request.
+      # `needs['commit-convention']`, not `needs.commit-convention`: a hyphen in an Actions
+      # expression is the subtraction operator, so the dotted form does not address the job.
+      - name: Assert every gate succeeded
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          [ "${{ needs.tests.result }}"    = success ] || { echo "tests: ${{ needs.tests.result }}"; exit 1; }
+          [ "${{ needs.security.result }}" = success ] || { echo "security: ${{ needs.security.result }}"; exit 1; }
+          if [ "$EVENT" = pull_request ]; then
+            [ "${{ needs['commit-convention'].result }}" = success ] \
+              || { echo "commit-convention: ${{ needs['commit-convention'].result }}"; exit 1; }
+          fi
