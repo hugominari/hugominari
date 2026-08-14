@@ -18,6 +18,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Adding a job here means adding it to the `required` job's `needs:` list in the
+  # same edit. That list is hand-maintained: a job absent from it is ungated, and
+  # `CI / required` still reports green.
   # No `paths:` filter on any required job: a workflow skipped by path filtering leaves its
   # check pending forever.
   tests:
@@ -77,13 +80,20 @@ jobs:
         run: |
           set -euo pipefail
           url="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          # Staged in RUNNER_TEMP, never in the workspace. `gitleaks dir .` scans the workspace,
+          # so downloading the tarball and extracting a ~20 MB Go binary there put the scanner
+          # inside its own scan target: wasted budget, and a generic high-entropy rule matching
+          # the binary would fail the gate for a reason no author could act on. The exposure
+          # would change with every gitleaks release.
+          cd "$RUNNER_TEMP"
           curl -sSfL "$url" -o gitleaks.tgz
           echo "${GITLEAKS_SHA256}  gitleaks.tgz" | sha256sum -c -
           tar xzf gitleaks.tgz gitleaks
+          cd "$GITHUB_WORKSPACE"
           # -v prints file:line and the rule id for each finding. Without it a failure says
           # only "leaks found: N", which is not something anyone can act on.
           # --redact masks the value itself, so the log names the location, never the secret.
-          ./gitleaks dir . --no-banner --redact -v --exit-code 1
+          "$RUNNER_TEMP/gitleaks" dir . --no-banner --redact -v --exit-code 1
 
   commit-convention:
     name: commit-convention
