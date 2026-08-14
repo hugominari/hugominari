@@ -115,6 +115,9 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # This `needs:` list is hand-maintained: a job added to this workflow later is NOT asserted
+    # here, so it would be ungated while `required` still reports green. Adding a job means
+    # adding it here in the same edit.
     needs: [tests, security, commit-convention]
     steps:
       # GitHub counts `skipped` AND `neutral` as satisfying a required check, so `needs`
