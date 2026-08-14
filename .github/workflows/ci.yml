@@ -45,6 +45,18 @@ jobs:
           find . -path ./.git -prune -o \( -name 'test_*.py' -o -name '*_test.py' \) -print \
             | grep fixtures || true
           echo ")"
+      # The vendored commit-convention copy is the one thing this repo does own. Asserted
+      # non-zero so deleting the test cannot read as "nothing to test".
+      - name: Vendored commit-convention self-test
+        run: |
+          set -euo pipefail
+          tests="$(find .github/commit-convention -name '*.test.sh' -type f | sort)"
+          found=0
+          while IFS= read -r t; do
+            [ -n "$t" ] || continue
+            echo "--- $t"; bash "$t"; found=$((found + 1))
+          done <<< "$tests"
+          [ "$found" -gt 0 ] || { echo "::error::vendored self-test is missing"; exit 1; }
 
   security:
     name: security
@@ -81,13 +93,22 @@ jobs:
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with: { fetch-depth: 0, persist-credentials: false }
-      # Pinned to a full commit SHA, never a tag: a tag can be moved to point at new code.
-      # Sourced from hmdeveloper-vault so a fix to the regex is one edit rather than six.
-      - uses: hugominari/hmdeveloper-vault/.github/actions/commit-convention@1bd7dca329ddcf729e9de61dcf563b802ee3b11c
-        with:
-          base_sha: ${{ github.event.pull_request.base.sha }}
-          head_sha: ${{ github.event.pull_request.head.sha }}
-          pr_title: ${{ github.event.pull_request.title }}
+      # VENDORED, not referenced. This is the only PUBLIC repo in the set, and a public repo
+      # cannot resolve a composite action living in a private one -- measured, not assumed:
+      # `Unable to resolve action hugominari/hmdeveloper-vault, not found`. Setting that repo's
+      # actions/permissions/access to `user` fixes private->private sharing and does nothing
+      # here. So the script is copied from hmdeveloper-vault@1bd7dca3 and kept in this repo.
+      #
+      # The cost is real: this copy can drift from the canonical one and nothing detects it,
+      # because CI here has no way to read the private repo. action.test.sh is vendored with it
+      # and run by the `tests` job, so the copy is at least proved to work -- just not proved
+      # to be current. The single-source alternative is moving the action to a public repo.
+      - name: Validate commit convention
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: .github/commit-convention/validate.sh
 
   required:
     name: required
