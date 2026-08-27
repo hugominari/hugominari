@@ -87,7 +87,7 @@ Senior Software Engineer • Fullstack (Python/Django/FastAPI • PHP/Laravel �
 
 - ✈️ **Alive Tour** — Operations platform for a premium travel agency: CMS, RBAC, loyalty program. `Expo/React Native · NativeWind · Firebase`
 
-- 🧠 **JARVIS** — On-premises, voice-first personal AI lab with 28 specialized agents, semantic memory (RAG), and Home Assistant integration. `Python · FastAPI · React/Tauri · PostgreSQL/pgvector · Ollama`
+- 🧠 **jarvis** — On-premises, voice-first personal AI lab with 28 specialized agents, semantic memory (RAG), and Home Assistant integration. `Python · FastAPI · React/Tauri · PostgreSQL/pgvector · Ollama`
 
 Full write-ups at **[hmdeveloper.com](https://hmdeveloper.com)**.
 

@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+out/
+target/
+.next/
+.nuxt/
+.svelte-kit/
+.vercel/
+.netlify/
+
+# Caches and generated artifacts
+.git/
+.cache/
+.parcel-cache/
+.turbo/
+.vite/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+__pycache__/
+*.py[cod]
+graphify-out/
+
+# Coverage and reports
+coverage/
+htmlcov/
+*.lcov
+
+# Logs and temporary files
+logs/
+log/
+*.log
+tmp/
+temp/
+*.tmp
+.DS_Store
+
+# Local environments and secrets
+.env
+.env.*
+.venv/
+venv/
+env/
+
+# Lockfiles
+*.lock
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+poetry.lock
+Pipfile.lock
+Cargo.lock
+
+# Large binary/media files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.mp4
+*.mov
+*.mp3
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.pdf
