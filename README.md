@@ -28,9 +28,9 @@ Senior Software Engineer • Fullstack (Python/Django/FastAPI • PHP/Laravel �
 
 ⚙️ Backend specialist in **Python (Django, DRF, FastAPI)**, **PHP (Laravel)**, and **Node.js (NestJS)** — with clean architecture, secure integrations (SOAP/REST, HMAC webhooks, ICP-Brasil digital signature), multitenancy, and LGPD compliance.
 
-🤖 Recent hands-on work in **applied AI**: autonomous agents, RAG/embeddings, LLM model routing, and voice pipelines.
+🤖 Hands-on work in **applied AI**: autonomous agents, RAG/embeddings, LLM model routing, and voice pipelines.
 
-🏠 Long-time **Home Assistant** and **ESPHome** hobbyist, bridging hardware and software for smarter living.
+🏠 Long-time **Home Assistant** and **ESPHome** builder, running a self-hosted smart-home platform as a production system.
 
 > _"Good code should be invisible — automation should feel natural."_ ⚡
 
